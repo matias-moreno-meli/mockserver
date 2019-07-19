@@ -32,11 +32,13 @@ public class Server {
 
         gson = new Gson();
         Item item = new Item(1234);
-        Site site = new Site();
 
         consulta("GET", "/items/.*", 200, "application/json; charset=utf-8", gson.toJson(item), 100000);
-        consulta("GET", "/sites/", 200, "application/json; charset=utf-8", site.getSites(), 100000);
-        consulta("GET", "/sites/.*", 200, "application/json; charset=utf-8", site.getSite(), 100000);
+        consulta("GET", "/sites/", 200, "application/json; charset=utf-8", Site.getSites(), 100000);
+        consulta("GET", "/sites/.*", 200, "application/json; charset=utf-8", Site.getSite(), 100000);
+        consulta("GET", "/countries/", 200, "application/json; charset=utf-8", Country.getCountries(), 100000);
+        consulta("GET", "/countries/.*", 200, "application/json; charset=utf-8", Country.getCountry(), 100000);
+        consulta("GET", "/users/.*", 200, "application/json; charset=utf-8", User.getUser(), 100000);
 
     }
 
